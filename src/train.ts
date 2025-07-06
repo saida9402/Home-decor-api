@@ -39,3 +39,8 @@ console.log(result);
 */
 
 //npm run train start
+
+/**
+ Traditional FD => BSSR (Adminka) => EJS
+ Modern FD      => SPA (Users Application)   =>  React
+ */

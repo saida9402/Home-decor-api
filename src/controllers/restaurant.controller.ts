@@ -41,6 +41,7 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
 
     const memberService = new MemberService();
     const result = await memberService.processLogin(input);
+    // TODO SESSTIONs AUTHENTICATION
 
     res.send(result);
   } catch (err) {
@@ -58,6 +59,8 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
 
     const memberService = new MemberService();
     const result = await memberService.processSignup(newMember);
+
+    // TODO SESSTIONs AUTHENTICATION
 
     res.send(result);
   } catch (err) {
