@@ -15,6 +15,7 @@ memberController.signup = async (req: Request, res: Response) => {
 
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
+    //TODO tokens AUTHENTICATION
 
     res.json({ member: result });
   } catch (err) {
@@ -31,6 +32,7 @@ memberController.login = async (req: Request, res: Response) => {
     console.log("body:", req.body);
     const input: LoginInput = req.body, //3ta const ketma ket keganida -> const bitta bilan input,/memberService,/result; constlarini qvolish ', 'bilan bo'glash
       result = await memberService.login(input);
+    //TODO tokens AUTHENTICATION
 
     res.json({ member: result });
   } catch (err) {
