@@ -1,24 +1,45 @@
-function majorityElement(arr: number[]): number | null {
-  const countMap: { [key: number]: number } = {};
-  let maxCount = 0;
-  let mostFrequent: number | null = null;
+// TASK J
+function findLongestWord(text: string): string {
+  const words = text.split(" ");
+  let longest = "";
 
-  for (const num of arr) {
-    countMap[num] = (countMap[num] || 0) + 1;
-
-    if (countMap[num] > maxCount) {
-      maxCount = countMap[num];
-      mostFrequent = num;
+  for (const word of words) {
+    if (word.length > longest.length) {
+      longest = word;
     }
   }
 
-  return mostFrequent;
+  return longest;
 }
 
-let a = [1, 2, 3, 4, 5, 4, 3, 4];
-let result = majorityElement(a);
+let b = "hdhsbsnsjd hsbsnaks hh hhsks jshsvdg";
+let javob = findLongestWord(b);
 
-console.log(result);
+console.log(javob);
+
+// task i
+
+// function majorityElement(arr: number[]): number | null {
+//   const countMap: { [key: number]: number } = {};
+//   let maxCount = 0;
+//   let mostFrequent: number | null = null;
+
+//   for (const num of arr) {
+//     countMap[num] = (countMap[num] || 0) + 1;
+
+//     if (countMap[num] > maxCount) {
+//       maxCount = countMap[num];
+//       mostFrequent = num;
+//     }
+//   }
+
+//   return mostFrequent;
+// }
+
+// let a = [1, 2, 3, 4, 5, 4, 3, 4];
+// let result = majorityElement(a);
+
+// console.log(result);
 
 /* Project Standards:
   - Logging standards 

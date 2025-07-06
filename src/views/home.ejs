@@ -1,14 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-    <script src="/js/main.js"></script>
-  </head>
-  <body>
-    <div class="format1">Test</div>
-    
+<%- include('includes/header') %>
+<body>
+  <div class="format1">Test</div>
+  <div class="card" style="width: 18rem">
+    <img
+      src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fletsenhance.io%2F&psig=AOvVaw2jweICTm3t7_16fSkKVOKT&ust=1751887304223000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPDzufWOqI4DFQAAAAAdAAAAABAE"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card’s content.
+      </p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
 
-</html>
+  <%- include('includes/footer') %>
+</body>
