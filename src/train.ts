@@ -1,21 +1,39 @@
-// TASK J
-function findLongestWord(text: string): string {
-  const words = text.split(" ");
-  let longest = "";
+// TASK K
 
-  for (const word of words) {
-    if (word.length > longest.length) {
-      longest = word;
+function countVowels(str: string): number {
+  const vowels: string[] = ["a", "e", "i", "o", "u"];
+  let count: number = 0;
+
+  for (const char of str.toLowerCase()) {
+    if (vowels.includes(char)) {
+      count++;
     }
   }
 
-  return longest;
+  return count;
 }
 
-let b = "hdhsbsnsjd hsbsnaks hh hhsks jshsvdg";
-let javob = findLongestWord(b);
+console.log(countVowels("string"));
+console.log(countVowels("saida"));
 
-console.log(javob);
+// TASK J
+// function findLongestWord(text: string): string {
+//   const words = text.split(" ");
+//   let longest = "";
+
+//   for (const word of words) {
+//     if (word.length > longest.length) {
+//       longest = word;
+//     }
+//   }
+
+//   return longest;
+// }
+
+// let b = "hdhsbsnsjd hsbsnaks hh hhsks jshsvdg";
+// let javob = findLongestWord(b);
+
+// console.log(javob);
 
 // task i
 
@@ -65,3 +83,9 @@ console.log(javob);
  Traditional FD => BSSR (Adminka) => EJS
  Modern FD      => SPA (Users Application)   =>  React
  */
+
+/**
+  * cookies
+  
+
+  */
