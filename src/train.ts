@@ -1,20 +1,30 @@
-// TASK K
+//TASK L
+const reverseSentence = (text: string): string =>
+  text
+    .split(" ")
+    .map((word) => [...word].reverse().join(""))
+    .join(" ");
 
-function countVowels(str: string): number {
-  const vowels: string[] = ["a", "e", "i", "o", "u"];
-  let count: number = 0;
+console.log(reverseSentence("we like coding!"));
+console.log(reverseSentence("I'm from Uzbekistan"));
 
-  for (const char of str.toLowerCase()) {
-    if (vowels.includes(char)) {
-      count++;
-    }
-  }
+// // TASK K
 
-  return count;
-}
+// function countVowels(str: string): number {
+//   const vowels: string[] = ["a", "e", "i", "o", "u"];
+//   let count: number = 0;
 
-console.log(countVowels("string"));
-console.log(countVowels("saida"));
+//   for (const char of str.toLowerCase()) {
+//     if (vowels.includes(char)) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(countVowels("string"));
+// console.log(countVowels("saida"));
 
 // TASK J
 // function findLongestWord(text: string): string {
