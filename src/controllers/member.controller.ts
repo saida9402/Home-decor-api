@@ -8,7 +8,7 @@ import Errors from "../libs/Errors";
 const memberService = new MemberService();
 
 const memberController: T = {};
-
+//define
 memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log("signup");
