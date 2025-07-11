@@ -17,7 +17,6 @@ productController.getAllProducts = async (req: AdminRequest, res: Response) => {
     console.log("Error, getAllProducts:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
-    //   res.json({})
   }
 };
 
@@ -25,11 +24,11 @@ productController.createNewProduct = async (req: Request, res: Response) => {
   try {
     console.log("createNewProduct");
     console.log("Uploaded files:", req.files);
+    res.send("DONE!");
   } catch (err) {
     console.log("Error, createNewProduct:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
-    //   res.json({})
   }
 };
 
@@ -47,8 +46,6 @@ productController.updateProduct = async (req: Request, res: Response) => {
 productController.updateChosenProduct = async (req: Request, res: Response) => {
   try {
     console.log("updateChosenProduct");
-
-    // res.json({ member: result });
   } catch (err) {
     console.log("Error, updateChosenProduct:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
