@@ -1,8 +1,13 @@
 import Errors from "../libs/Errors";
 import ProductModel from "../schema/Product.model";
 
-import { Product, ProductInput } from "../libs/types/product";
+import {
+  Product,
+  ProductInput,
+  ProductUpdateInput,
+} from "../libs/types/product";
 import { HttpCode, Message } from "../libs/Errors";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 
 class ProductService {
   private readonly productModel;
@@ -22,6 +27,20 @@ class ProductService {
       console.log("Error, model:createNewProduct:", err);
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
+  }
+
+  public async updateChosenProduct(
+    id: string,
+    input: ProductUpdateInput
+  ): Promise<Product> {
+    //string->objectId 으로 변경 databasedan qidirilgani uchun objectIdda bolishi kere
+    id = shapeIntoMongooseObjectId(id);
+    const result = await this.productModel
+      .findOneAndUpdate({ _id: id }, input, { new: true }) //{ new: true }) o'zgargan qiymatni ko'rsatadi lekin DBda yengilanadi.
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.UPDATE_FAILED);
+
+    return result; //result PRoductni qaytaradi
   }
 }
 
