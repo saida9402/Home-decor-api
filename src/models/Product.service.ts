@@ -19,6 +19,14 @@ class ProductService {
   /**SPA */
 
   /**SSR */
+  public async getAllProducts(): Promise<Product[]> {
+    const result = await this.productModel.find().exec();
+    if (result.length === 0)
+      //(!result)ni o'zgartirdim crash sabab
+      throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result; //result PRoductni qaytaradi
+  }
 
   public async createNewProduct(input: ProductInput): Promise<Product> {
     try {

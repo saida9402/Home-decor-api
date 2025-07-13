@@ -1,12 +1,28 @@
-//TASK L
-const reverseSentence = (text: string): string =>
-  text
-    .split(" ")
-    .map((word) => [...word].reverse().join(""))
-    .join(" ");
+//TASK M
+type NumberWithSquare = {
+  number: number;
+  square: number;
+};
 
-console.log(reverseSentence("we like coding!"));
-console.log(reverseSentence("I'm from Uzbekistan"));
+function getSquareNumbers(arr: number[]): NumberWithSquare[] {
+  return arr.map((num) => ({
+    number: num,
+    square: num * num,
+  }));
+}
+
+const a = getSquareNumbers([1, 2, 3]);
+console.log(a);
+
+//TASK L
+// const reverseSentence = (text: string): string =>
+//   text
+//     .split(" ")
+//     .map((word) => [...word].reverse().join(""))
+//     .join(" ");
+
+// console.log(reverseSentence("we like coding!"));
+// console.log(reverseSentence("I'm from Uzbekistan"));
 
 // // TASK K
 
