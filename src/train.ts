@@ -1,18 +1,31 @@
-//TASK M
-type NumberWithSquare = {
-  number: number;
-  square: number;
-};
+//TASK N
 
-function getSquareNumbers(arr: number[]): NumberWithSquare[] {
-  return arr.map((num) => ({
-    number: num,
-    square: num * num,
-  }));
+function palindromCheck(word: string): boolean {
+  const reversed = word.split("").reverse().join("");
+  return word === reversed;
 }
 
-const a = getSquareNumbers([1, 2, 3]);
-console.log(a);
+console.log(palindromCheck("dad"));
+console.log(palindromCheck("son"));
+console.log(palindromCheck("44"));
+console.log(palindromCheck("474"));
+console.log(palindromCheck("47894"));
+console.log(palindromCheck("saida"));
+//TASK M
+// type NumberWithSquare = {
+//   number: number;
+//   square: number;
+// };
+
+// function getSquareNumbers(arr: number[]): NumberWithSquare[] {
+//   return arr.map((num) => ({
+//     number: num,
+//     square: num * num,
+//   }));
+// }
+
+// const a = getSquareNumbers([1, 2, 3]);
+// console.log(a);
 
 //TASK L
 // const reverseSentence = (text: string): string =>
