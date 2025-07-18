@@ -1,16 +1,34 @@
-//TASK N
+// /TASK O
+function calculateSumOfNumbers(arr: any[]): number {
+  let sum = 0;
 
-function palindromCheck(word: string): boolean {
-  const reversed = word.split("").reverse().join("");
-  return word === reversed;
+  for (const item of arr) {
+    if (typeof item === "number") {
+      sum += item;
+    }
+  }
+
+  return sum;
 }
 
-console.log(palindromCheck("dad"));
-console.log(palindromCheck("son"));
-console.log(palindromCheck("44"));
-console.log(palindromCheck("474"));
-console.log(palindromCheck("47894"));
-console.log(palindromCheck("saida"));
+const b = [10, "10", { son: 10 }, true, 35];
+
+// /TASK N
+
+// function palindromCheck(word: string): boolean {
+//   const reversed = word.split("").reverse().join("");
+//   return word === reversed;
+// }
+
+// const a = getSquareNumbers([1, 2, 3]);
+// console.log(a);
+// console.log(palindromCheck("dad"));
+// console.log(palindromCheck("son"));
+// console.log(palindromCheck("44"));
+// console.log(palindromCheck("474"));
+// console.log(palindromCheck("47894"));
+// console.log(palindromCheck("saida"));
+
 //TASK M
 // type NumberWithSquare = {
 //   number: number;
