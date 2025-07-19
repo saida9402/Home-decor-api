@@ -17,7 +17,7 @@ routerAdmin
     makeUploader("members").single("memberImage"),
     restaurantController.processSignup
   );
-routerAdmin.get("/logut", restaurantController.logout);
+routerAdmin.get("/logout", restaurantController.logout);
 routerAdmin.get("/check-me", restaurantController.checkAuthSessions);
 
 /** Product */

@@ -21,7 +21,7 @@ class ProductService {
   /**SSR */
   public async getAllProducts(): Promise<Product[]> {
     const result = await this.productModel.find().exec();
-    if (result.length === 0)
+    if (!result)
       //(!result)ni o'zgartirdim crash sabab
       throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
