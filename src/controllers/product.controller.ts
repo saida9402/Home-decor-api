@@ -16,8 +16,8 @@ const productController: T = {};
 productController.getAllProducts = async (req: AdminRequest, res: Response) => {
   try {
     console.log("getAllProducts");
-    // console.log("req.member", req.member); //request memberchini terminalda chiqazib beradi allproductsdan send bosa
     const data = await productService.getAllProducts();
+    console.log("product:", data);
 
     // res.render("products", { products: data });
     res.render("products", {
