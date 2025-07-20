@@ -1,17 +1,24 @@
-// /TASK O
-function calculateSumOfNumbers(arr: any[]): number {
-  let sum = 0;
-
-  for (const item of arr) {
-    if (typeof item === "number") {
-      sum += item;
-    }
-  }
-
-  return sum;
+//TASK P
+function objectToArray(obj: Record<string, any>): [string, any][] {
+  return Object.entries(obj);
 }
 
-const b = [10, "10", { son: 10 }, true, 35];
+console.log(objectToArray({ a: 10, b: 20 }));
+
+// /TASK O
+// function calculateSumOfNumbers(arr: any[]): number {
+//   let sum = 0;
+
+//   for (const item of arr) {
+//     if (typeof item === "number") {
+//       sum += item;
+//     }
+//   }
+
+//   return sum;
+// }
+
+// const b = [10, "10", { son: 10 }, true, 35];
 
 // /TASK N
 
