@@ -71,7 +71,7 @@ function previewFileHandler(input, order) {
   const imgClassName = input.className;
   console.log("input:", input);
 
-  const file = $(`.${imgClassName}`).get(0).file[0],
+  const file = $(`.${imgClassName}`).get(0).files[0],
     fileType = file["type"],
     validImageType = ["image/jpg", "image/jpeg", "image/png"];
 
