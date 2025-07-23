@@ -22,17 +22,3 @@ const makeUploader = (address: string) => {
 };
 
 export default makeUploader;
-
-// const product_storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "./uploads/products");
-//   },
-//   filename: function (req, file, cb) {
-//     console.log(file);
-//     const extension = path.parse(file.originalname).ext; // ext rasmni jpeg png jpgligicha o'z formatiligicha olib beradi
-//     const random_name = v4() + extension; // v4 rasmni random raqamlash uchun
-//     cb(null, random_name);
-//   },
-// });
-
-// export const uploadProductImage = multer({ storage: product_storage });
