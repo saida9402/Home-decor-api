@@ -1,12 +1,22 @@
-//TASK Q
-
-function hasProperty(obj: Record<string, string>, key: string): boolean {
-  return key in obj;
+function missingNumber(nums: number[]): number {
+  const n: number = nums.length;
+  const expectedSum: number = (n * (n + 1)) / 2;
+  const actualSum: number = nums.reduce((sum, num) => sum + num, 0);
+  return expectedSum - actualSum;
 }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "country"));
-console.log(hasProperty({ name: "BMW", year: "2025" }, "year"));
-console.log(hasProperty({ name: "BMW" }, "model"));
+console.log(missingNumber([3, 0, 1]));
+console.log(missingNumber([0, 6, 9]));
+
+//TASK Q
+
+// function hasProperty(obj: Record<string, string>, key: string): boolean {
+//   return key in obj;
+// }
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "country"));
+// console.log(hasProperty({ name: "BMW", year: "2025" }, "year"));
+// console.log(hasProperty({ name: "BMW" }, "model"));
 
 // //TASK P
 // function objectToArray(obj: Record<string, any>): [string, any][] {
