@@ -1,12 +1,20 @@
-function missingNumber(nums: number[]): number {
-  const n: number = nums.length;
-  const expectedSum: number = (n * (n + 1)) / 2;
-  const actualSum: number = nums.reduce((sum, num) => sum + num, 0);
-  return expectedSum - actualSum;
+//Task T
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  const mergedArray = [...arr1, ...arr2];
+  return mergedArray.sort((a, b) => a - b);
 }
 
-console.log(missingNumber([3, 0, 1]));
-console.log(missingNumber([0, 6, 9]));
+console.log(mergeSortedArrays([0, 8, 6, 94], [2, 9, 88]));
+
+// function missingNumber(nums: number[]): number {
+//   const n: number = nums.length;
+//   const expectedSum: number = (n * (n + 1)) / 2;
+//   const actualSum: number = nums.reduce((sum, num) => sum + num, 0);
+//   return expectedSum - actualSum;
+// }
+
+// console.log(missingNumber([3, 0, 1]));
+// console.log(missingNumber([0, 6, 9]));
 
 //TASK Q
 
