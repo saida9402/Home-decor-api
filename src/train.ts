@@ -1,16 +1,42 @@
-//TASK U
+//TASK V
+function countChars(input: string): Record<string, number> {
+  const result: Record<string, number> = {};
 
-function sumOdds(number: number): number {
-  let count = 0;
-  for (let i = 1; i < number; i += 2) {
-    count++;
+  for (const char of input) {
+    if (result[char]) {
+      result[char] += 1;
+    } else {
+      result[char] = 1;
+    }
   }
-  return count;
+
+  return result;
 }
 
-console.log(sumOdds(9));
-console.log(sumOdds(99));
-console.log(sumOdds(1));
+console.log(countChars("hello"));
+
+//TASK U
+// shunday function tuzing, uni number parametri bo'lsin.
+// Va bu function berilgan parametrgacha, 0'dan boshlab
+// oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+// Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
+// Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud.
+// Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
+
+// function sumOdds(number: number): number {
+//   let count = 0;
+//   for (let i = 1; i < number; i += 2) {
+//     count++;
+//   }
+//   return count;
+// }
+
+// console.log(sumOdds(9));
+// console.log(sumOdds(99));
+// console.log(sumOdds(1));
 
 //Task T
 // function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
