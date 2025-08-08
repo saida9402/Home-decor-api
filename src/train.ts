@@ -1,19 +1,33 @@
-//TASK V
-function countChars(input: string): Record<string, number> {
-  const result: Record<string, number> = {};
+//TASK W
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  const result: T[][] = [];
 
-  for (const char of input) {
-    if (result[char]) {
-      result[char] += 1;
-    } else {
-      result[char] = 1;
-    }
+  for (let i = 0; i < arr.length; i += size) {
+    const chunk = arr.slice(i, i + size);
+    result.push(chunk);
   }
 
   return result;
 }
 
-console.log(countChars("hello"));
+const result = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+console.log(result);
+//TASK V
+// function countChars(input: string): Record<string, number> {
+//   const result: Record<string, number> = {};
+
+//   for (const char of input) {
+//     if (result[char]) {
+//       result[char] += 1;
+//     } else {
+//       result[char] = 1;
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(countChars("hello"));
 
 //TASK U
 // shunday function tuzing, uni number parametri bo'lsin.
