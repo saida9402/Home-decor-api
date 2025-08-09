@@ -9,11 +9,11 @@ class AuthService {
     this.secretToken = process.env.SECRET_TOKEN as string;
   }
 
-  public async createToken(playload: Member) {
+  public async createToken(payload: Member) {
     return new Promise((resolve, reject) => {
       const duration = `${AUTH_TIMER}h`;
       jwt.sign(
-        playload,
+        payload,
         process.env.SECRET_TOKEN as string,
         { expiresIn: duration },
         (err, token) => {
