@@ -1,17 +1,50 @@
-//TASK W
-function chunkArray<T>(arr: T[], size: number): T[][] {
-  const result: T[][] = [];
+//TASK X
 
-  for (let i = 0; i < arr.length; i += size) {
-    const chunk = arr.slice(i, i + size);
-    result.push(chunk);
+function countOccurrences(obj: Record<string, any>, key: string): number {
+  let count = 0;
+
+  function search(current: any) {
+    if (current && typeof current === "object" && !Array.isArray(current)) {
+      for (const k in current) {
+        if (k === key) {
+          count++;
+        }
+
+        if (typeof current[k] === "object" && current[k] !== null) {
+          search(current[k]);
+        }
+      }
+    }
   }
 
-  return result;
+  search(obj);
+  return count;
 }
 
-const result = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
-console.log(result);
+const data = {
+  model: "Bugatti",
+  steer: {
+    model: "HANKOOK",
+    size: 30,
+  },
+};
+
+console.log(countOccurrences(data, "model"));
+
+//TASK W
+// function chunkArray<T>(arr: T[], size: number): T[][] {
+//   const result: T[][] = [];
+
+//   for (let i = 0; i < arr.length; i += size) {
+//     const chunk = arr.slice(i, i + size);
+//     result.push(chunk);
+//   }
+
+//   return result;
+// }
+
+// const result = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+// console.log(result);
 //TASK V
 // function countChars(input: string): Record<string, number> {
 //   const result: Record<string, number> = {};
