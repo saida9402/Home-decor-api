@@ -18,6 +18,7 @@ const memberService = new MemberService();
 const authService = new AuthService();
 
 const memberController: T = {};
+
 //define
 
 memberController.getRestaurant = async (req: Request, res: Response) => {

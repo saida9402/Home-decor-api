@@ -45,3 +45,11 @@ export interface ProductUpdateInput {
   productImages?: string[];
   productViews?: number;
 }
+
+export interface ProductInquiry {
+  order: string;
+  page: number;
+  limit: number;
+  productCollection?: ProductCollection;
+  search?: string;
+}
