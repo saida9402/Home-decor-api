@@ -1,35 +1,43 @@
-//TASK X
+//TASK Y
 
-function countOccurrences(obj: Record<string, any>, key: string): number {
-  let count = 0;
-
-  function search(current: any) {
-    if (current && typeof current === "object" && !Array.isArray(current)) {
-      for (const k in current) {
-        if (k === key) {
-          count++;
-        }
-
-        if (typeof current[k] === "object" && current[k] !== null) {
-          search(current[k]);
-        }
-      }
-    }
-  }
-
-  search(obj);
-  return count;
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  return arr1.filter((value) => arr2.includes(value));
 }
 
-const data = {
-  model: "Bugatti",
-  steer: {
-    model: "HANKOOK",
-    size: 30,
-  },
-};
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
 
-console.log(countOccurrences(data, "model"));
+// //TASK X
+
+// function countOccurrences(obj: Record<string, any>, key: string): number {
+//   let count = 0;
+
+//   function search(current: any) {
+//     if (current && typeof current === "object" && !Array.isArray(current)) {
+//       for (const k in current) {
+//         if (k === key) {
+//           count++;
+//         }
+
+//         if (typeof current[k] === "object" && current[k] !== null) {
+//           search(current[k]);
+//         }
+//       }
+//     }
+//   }
+
+//   search(obj);
+//   return count;
+// }
+
+// const data = {
+//   model: "Bugatti",
+//   steer: {
+//     model: "HANKOOK",
+//     size: 30,
+//   },
+// };
+
+// console.log(countOccurrences(data, "model"));
 
 //TASK W
 // function chunkArray<T>(arr: T[], size: number): T[][] {
