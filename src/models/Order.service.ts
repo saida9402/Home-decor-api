@@ -56,13 +56,16 @@ class OrderService {
     orderId: ObjectId,
     input: OrderItemInput[]
   ): Promise<void> {
+    //record uchun mantiq bolsa (1)
     const promisedList = input.map(async (item: OrderItemInput) => {
+      //map를 이용하는 이유: async for/while 과 사용할 수 없기 떼문에
       item.orderId = orderId;
       item.productId = shapeIntoMongooseObjectId(item.productId);
       await this.orderItemModel.create(item);
       return "INSERTED";
     });
 
+    // record uchun mantiqni ishga tushuruvchi mantiq (2)
     const orderItemsState = await Promise.all(promisedList);
     console.log("orderItemsState:", orderItemsState);
   }
@@ -77,7 +80,7 @@ class OrderService {
     const result = await this.orderModel
       .aggregate([
         { $match: matches },
-        { $sort: { updateAt: -1 } },
+        { $sort: { updatedAt: -1 } },
         { $skip: (inquiry.page - 1) * inquiry.limit },
         { $limit: inquiry.limit },
         {

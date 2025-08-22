@@ -1,16 +1,25 @@
-//TASK Z
-function sumEvens(numbers: number[]): number {
-  let sum = 0;
-  for (const num of numbers) {
-    if (num % 2 === 0) {
-      sum += num;
-    }
-  }
-  return sum;
+//TASK ZA
+
+function sortByAge(arr: { age: number }[]): { age: number }[] {
+  return arr.sort((a, b) => a.age - b.age);
 }
 
-console.log(sumEvens([1, 2, 3]));
-console.log(sumEvens([1, 2, 3, 2]));
+const a = [{ age: 23 }, { age: 21 }, { age: 13 }];
+console.log(sortByAge(a));
+
+//TASK Z
+// function sumEvens(numbers: number[]): number {
+//   let sum = 0;
+//   for (const num of numbers) {
+//     if (num % 2 === 0) {
+//       sum += num;
+//     }
+//   }
+//   return sum;
+// }
+
+// console.log(sumEvens([1, 2, 3]));
+// console.log(sumEvens([1, 2, 3, 2]));
 
 //TASK Y
 
