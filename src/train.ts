@@ -1,11 +1,20 @@
-//TASK ZA
-
-function sortByAge(arr: { age: number }[]): { age: number }[] {
-  return arr.sort((a, b) => a.age - b.age);
+//TASK ZC
+function celsiusToFahrenheit(celsius: number): number {
+  return (celsius * 9) / 5 + 32;
 }
 
-const a = [{ age: 23 }, { age: 21 }, { age: 13 }];
-console.log(sortByAge(a));
+console.log(celsiusToFahrenheit(0));
+console.log(celsiusToFahrenheit(10));
+console.log(celsiusToFahrenheit(15));
+
+//TASK ZA
+
+// function sortByAge(arr: { age: number }[]): { age: number }[] {
+//   return arr.sort((a, b) => a.age - b.age);
+// }
+
+// const a = [{ age: 23 }, { age: 21 }, { age: 13 }];
+// console.log(sortByAge(a));
 
 //TASK Z
 // function sumEvens(numbers: number[]): number {
