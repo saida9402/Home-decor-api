@@ -13,9 +13,7 @@ function changeNumberInArray(
   return updatedArray;
 }
 
-// Misol:
 console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
-// Natija: [1, 2, 7, 2]
 
 //TASK ZC
 // function celsiusToFahrenheit(celsius: number): number {
