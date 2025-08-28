@@ -1,11 +1,30 @@
-//TASK ZC
-function celsiusToFahrenheit(celsius: number): number {
-  return (celsius * 9) / 5 + 32;
+//TASK ZD
+function changeNumberInArray(
+  index: number,
+  arr: number[],
+  newValue: number
+): number[] {
+  const updatedArray = [...arr];
+
+  if (index >= 0 && index < updatedArray.length) {
+    updatedArray[index] = newValue;
+  }
+
+  return updatedArray;
 }
 
-console.log(celsiusToFahrenheit(0));
-console.log(celsiusToFahrenheit(10));
-console.log(celsiusToFahrenheit(15));
+// Misol:
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+// Natija: [1, 2, 7, 2]
+
+//TASK ZC
+// function celsiusToFahrenheit(celsius: number): number {
+//   return (celsius * 9) / 5 + 32;
+// }
+
+// console.log(celsiusToFahrenheit(0));
+// console.log(celsiusToFahrenheit(10));
+// console.log(celsiusToFahrenheit(15));
 
 //TASK ZA
 
