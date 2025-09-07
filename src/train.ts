@@ -1,17 +1,31 @@
-//TASK ZE
-function removeDuplicate(str: string): string {
-  let result = "";
-  for (let char of str) {
-    if (!result.includes(char)) {
-      result += char;
-    }
-  }
-  return result;
+//TASK ZF
+
+function capitalizeWords(text: string): string {
+  return text
+    .split(" ")
+    .map((word) => {
+      if (word.length <= 2) return word;
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
 }
 
-console.log(removeDuplicate("stringg"));
-console.log(removeDuplicate("flexboxx"));
-console.log(removeDuplicate("uzzbek"));
+console.log(capitalizeWords("name should be a string"));
+
+//TASK ZE
+// function removeDuplicate(str: string): string {
+//   let result = "";
+//   for (let char of str) {
+//     if (!result.includes(char)) {
+//       result += char;
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(removeDuplicate("stringg"));
+// console.log(removeDuplicate("flexboxx"));
+// console.log(removeDuplicate("uzzbek"));
 
 //TASK ZD
 // function changeNumberInArray(
