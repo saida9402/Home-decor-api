@@ -1,24 +1,42 @@
-//TASK ZH
+//ZI
 
-function findDisappearedNumbers(arr: number[]): number[] {
-  if (arr.length === 0) return [];
-
-  const min = Math.min(...arr);
-  const max = Math.max(...arr);
-
-  const set = new Set(arr);
-  const result: number[] = [];
-
-  for (let i = min; i <= max; i++) {
-    if (!set.has(i)) {
-      result.push(i);
-    }
-  }
-
-  return result;
+function delayHelloWorld(message: string): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(message);
+    }, 3000);
+  });
 }
 
-console.log(findDisappearedNumbers([1, 3, 4, 7, 10, 15]));
+delayHelloWorld("Hello World!").then((result) => {
+  console.log(result);
+});
+
+delayHelloWorld("salom!").then((result) => {
+  console.log(result);
+});
+
+//TASK ZH
+
+// function findDisappearedNumbers(arr: number[]): number[] {
+//   if (arr.length === 0) return [];
+
+//   const min = Math.min(...arr);
+//   const max = Math.max(...arr);
+
+//   const set = new Set(arr);
+//   const result: number[] = [];
+
+//   for (let i = min; i <= max; i++) {
+//     if (!set.has(i)) {
+//       result.push(i);
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(findDisappearedNumbers([1, 3, 4, 7, 10, 15]));
 
 //TASK ZG
 // function convertToSnakeCase(str: string): string {
