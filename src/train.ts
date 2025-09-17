@@ -1,20 +1,38 @@
-//ZI
+//ZJ
+function reduceNestedArray(arr: any[]): number {
+  let sum = 0;
 
-function delayHelloWorld(message: string): Promise<string> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(message);
-    }, 3000);
-  });
+  for (const item of arr) {
+    if (Array.isArray(item)) {
+      sum += reduceNestedArray(item);
+    } else if (typeof item === "number") {
+      sum += item;
+    }
+  }
+
+  return sum;
 }
 
-delayHelloWorld("Hello World!").then((result) => {
-  console.log(result);
-});
+console.log(reduceNestedArray([1, [0, 2, [7]]]));
+console.log(reduceNestedArray([5, [10, [19, 70]], 4]));
 
-delayHelloWorld("salom!").then((result) => {
-  console.log(result);
-});
+//ZI
+
+// function delayHelloWorld(message: string): Promise<string> {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(message);
+//     }, 3000);
+//   });
+// }
+
+// delayHelloWorld("Hello World!").then((result) => {
+//   console.log(result);
+// });
+
+// delayHelloWorld("salom!").then((result) => {
+//   console.log(result);
+// });
 
 //TASK ZH
 
