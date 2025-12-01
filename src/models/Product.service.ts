@@ -28,14 +28,17 @@ class ProductService {
   /**SPA */
 
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
+    // ✅ Filter va search sharti shu yerda yoziladi
     const match: T = { productStatus: ProductStatus.PROCESS };
 
     if (inquiry.productCollection)
       match.productCollection = inquiry.productCollection;
+
     if (inquiry.search) {
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
     }
 
+    // Sortlash va pagination
     const sort: T =
       inquiry.order === "productPrice"
         ? { [inquiry.order]: 1 }
@@ -45,11 +48,17 @@ class ProductService {
       .aggregate([
         { $match: match },
         { $sort: sort },
-        { $skip: (inquiry.page * 1 - 1) * inquiry.limit },
-        { $limit: inquiry.limit * 1 },
+        { $skip: (inquiry.page - 1) * inquiry.limit },
+        { $limit: inquiry.limit },
       ])
       .exec();
-    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    // if (!result || result.length === 0)
+    //   throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND); data bo'lmasa 404 bolib no data found kelmasligi uchun o'chirdim
+
+    if (!result.length) {
+      return [];
+    }
 
     return result;
   }

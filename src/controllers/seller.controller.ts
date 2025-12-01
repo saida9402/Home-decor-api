@@ -7,19 +7,19 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 
 const memberService = new MemberService();
 
-const restaurantController: T = {};
-restaurantController.goHome = (req: Request, res: Response) => {
+const sellerController: T = {};
+
+sellerController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
     res.render("home");
-    // send | json | redirect | end | render
   } catch (err) {
     console.log("Error, goHome:", err);
     res.redirect("/admin");
   }
 };
 
-restaurantController.getLogin = (req: Request, res: Response) => {
+sellerController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
     res.render("login");
@@ -29,7 +29,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.getSignup = (req: Request, res: Response) => {
+sellerController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
     res.render("signup");
@@ -39,18 +39,12 @@ restaurantController.getSignup = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processLogin = async (
-  req: AdminRequest,
-  res: Response
-) => {
+sellerController.processLogin = async (req: AdminRequest, res: Response) => {
   try {
     console.log("processLogin");
-    // console.log("body:", req.body);
-
     const input: LoginInput = req.body;
-
     const result = await memberService.processLogin(input);
-    // TODO SESSTIONs AUTHENTICATION
+
     req.session.member = result;
     req.session.save(function () {
       res.redirect("/admin/product/all");
@@ -59,13 +53,14 @@ restaurantController.processLogin = async (
     console.log("Error, processLogin:", err);
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+
     res.send(
       `<script> alert ("${message}"); window.location.replace('/admin/login')</script>`
     );
   }
 };
 
-restaurantController.logout = async (req: AdminRequest, res: Response) => {
+sellerController.logout = async (req: AdminRequest, res: Response) => {
   try {
     console.log("logout");
     req.session.destroy(function () {
@@ -77,7 +72,7 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
   }
 };
 
-restaurantController.getUsers = async (req: Request, res: Response) => {
+sellerController.getUsers = async (req: Request, res: Response) => {
   try {
     console.log("getUsers");
     const result = await memberService.getUsers();
@@ -90,7 +85,7 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
   }
 };
 
-restaurantController.updateChosenUser = async (req: Request, res: Response) => {
+sellerController.updateChosenUser = async (req: Request, res: Response) => {
   try {
     console.log("updateChosenUser ");
     const result = await memberService.updateChosenUser(req.body);
@@ -103,24 +98,21 @@ restaurantController.updateChosenUser = async (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processSignup = async (
-  req: AdminRequest,
-  res: Response
-) => {
+sellerController.processSignup = async (req: AdminRequest, res: Response) => {
   try {
     console.log("processSignup");
-    // console.log("req.body:", req.body);
+
     const file = req.file;
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
 
     const newMember: MemberInput = req.body;
     newMember.memberImage = file?.path;
-    newMember.memberType = MemberType.RESTAURANT;
+
+    newMember.memberType = MemberType.SELLER;
 
     const result = await memberService.processSignup(newMember);
 
-    // TODO SESSTIONs AUTHENTICATION
     req.session.member = result;
     req.session.save(function () {
       res.redirect("/admin/product/all");
@@ -129,19 +121,19 @@ restaurantController.processSignup = async (
     console.log("Error, processSignup:", err);
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+
     res.send(
       `<script> alert ("${message}"); window.location.replace('/admin/signup')</script>`
     );
   }
 };
 
-restaurantController.checkAuthSessions = async (
+sellerController.checkAuthSessions = async (
   req: AdminRequest,
   res: Response
 ) => {
   try {
     console.log("checkAuthSessions");
-    // console.log("body:", req.body);
 
     if (req.session?.member)
       res.send(`<script> alert ("${req.session.member.memberNick}")</script>`);
@@ -152,12 +144,12 @@ restaurantController.checkAuthSessions = async (
   }
 };
 
-restaurantController.verifyRestaurant = (
+sellerController.verifySeller = (
   req: AdminRequest,
   res: Response,
   next: NextFunction
 ) => {
-  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+  if (req.session?.member?.memberType === MemberType.SELLER) {
     req.member = req.session.member;
     next();
   } else {
@@ -168,4 +160,4 @@ restaurantController.verifyRestaurant = (
   }
 };
 
-export default restaurantController;
+export default sellerController;
