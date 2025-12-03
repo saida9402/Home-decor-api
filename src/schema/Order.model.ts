@@ -19,6 +19,11 @@ const orderSchema = new Schema(
       default: OrderStatus.PAUSE,
     },
 
+    orderRewarded: {
+      type: Boolean,
+      default: false,
+    },
+
     memberId: {
       type: Schema.Types.ObjectId,
       required: true,

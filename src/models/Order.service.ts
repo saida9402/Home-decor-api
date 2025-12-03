@@ -107,32 +107,65 @@ class OrderService {
     return result;
   }
 
+  // public async updateOrder(
+  //   member: Member,
+  //   input: OrderUpdateInput
+  // ): Promise<Order> {
+  //   const memberId = shapeIntoMongooseObjectId(member._id);
+  //   const orderId = shapeIntoMongooseObjectId(input.orderId);
+  //   const orderStatus = input.orderStatus;
+
+  //   const result = await this.orderModel
+  //     .findOneAndUpdate(
+  //       {
+  //         memberId: memberId,
+  //         _id: orderId,
+  //       },
+  //       { orderStatus: orderStatus },
+  //       { new: true }
+  //     )
+  //     .exec();
+
+  //   if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+
+  //   if (orderStatus === OrderStatus.PROCESS) {
+  //     await this.memberService.addUserPoint(member, 1);
+  //   }
+
+  //   return result;
+  // }
+
   public async updateOrder(
     member: Member,
     input: OrderUpdateInput
   ): Promise<Order> {
     const memberId = shapeIntoMongooseObjectId(member._id);
     const orderId = shapeIntoMongooseObjectId(input.orderId);
-    const orderStatus = input.orderStatus;
 
-    const result = await this.orderModel
-      .findOneAndUpdate(
-        {
-          memberId: memberId,
-          _id: orderId,
-        },
-        { orderStatus: orderStatus },
-        { new: true }
-      )
-      .exec();
+    const order = await this.orderModel.findOne({
+      memberId,
+      _id: orderId,
+    });
 
-    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
-
-    if (orderStatus === OrderStatus.PROCESS) {
-      await this.memberService.addUserPoint(member, 1);
+    if (!order) {
+      throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
     }
 
-    return result;
+    // ✅ faqat 1 marta point
+    if (
+      input.orderStatus === OrderStatus.FINISH &&
+      order.orderStatus !== OrderStatus.FINISH &&
+      !order.orderRewarded
+    ) {
+      const rewardPoint = Math.floor(order.orderTotal * 0.05); // 5%
+      await this.memberService.addUserPoint(member, rewardPoint);
+      order.orderRewarded = true;
+    }
+
+    order.orderStatus = input.orderStatus;
+    await order.save();
+
+    return order;
   }
 }
 
