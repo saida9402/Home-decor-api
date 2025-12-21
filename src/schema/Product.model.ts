@@ -98,6 +98,11 @@ const productSchema = new Schema(
       default: null,
     },
 
+    productViews: {
+      type: Number,
+      default: 0,
+    },
+
     productVolume: {
       type: String,
       enum: ProductVolume,

@@ -38,6 +38,7 @@ routerAdmin.post(
   sellerController.verifySeller,
   productController.updateChosenProduct
 );
+
 /** User */
 
 routerAdmin.get(

@@ -6,7 +6,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  /* ADMIN PANELGA MOS HOME DECOR GRADIENT */
+  background: linear-gradient(
+    -45deg,
+    #f5efe6,
+    /* warm beige */ #e6ede8,
+    /* soft green */ #dfe7f2,
+    /* stone blue */ #f3e8ff /* soft lavender */
+  );
   animation: gradient 15s ease infinite;
   -webkit-animation: gradient 15s ease infinite;
   background-size: 200% 200%;
