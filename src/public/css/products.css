@@ -6,7 +6,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(-45deg, #110303bf, #e37813, #011c1aba, #968383);
+  background: linear-gradient(
+    -45deg,
+    #f4f1ec,
+    /* warm linen */ #e6e0d8,
+    /* light wood */ #dde4df,
+    /* soft sage */ #e9e6e1 /* stone beige */
+  );
 }
 
 .products-container a {
@@ -15,7 +21,7 @@
 }
 
 .products-container .nav-item a {
-  color: #e3c08d;
+  color: #675242;
 }
 
 .products-container .nav-item a.disabled {
@@ -60,6 +66,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 5%;
 }
 
 .products-container .board .dish-container {
@@ -79,7 +86,7 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 25px;
-  color: #ffffff;
+  color: #9b948d;
 }
 
 .products-container .long-input {

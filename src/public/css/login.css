@@ -7,16 +7,11 @@
   align-items: center;
   justify-content: center;
   /* ADMIN PANELGA MOS HOME DECOR GRADIENT */
-  background: linear-gradient(
-    -45deg,
-    #f5efe6,
-    /* warm beige */ #e6ede8,
-    /* soft green */ #dfe7f2,
-    /* stone blue */ #f3e8ff /* soft lavender */
-  );
+  background: linear-gradient(135deg, #f6f1eb, #e6ddd2);
+
+  background-size: 200% 200%;
   animation: gradient 15s ease infinite;
   -webkit-animation: gradient 15s ease infinite;
-  background-size: 200% 200%;
 }
 
 .login-container a {
@@ -113,7 +108,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #33a0ff;
+  background: #3ecfe6;
   border-radius: 10px;
   font-family: "Nunito";
   font-style: normal;
