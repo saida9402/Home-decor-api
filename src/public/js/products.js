@@ -1,6 +1,16 @@
 console.log("Products frontend javascript file");
 
 $(function () {
+  const params = new URLSearchParams(window.location.search);
+  const isCreate = params.get("create");
+
+  if (isCreate === "true") {
+    //formga to'gri create dan kirish uchun
+    $(".dish-container").show(); // form ochiq
+    $(".dishes-table").hide(); // product list yopiq
+    $("#process-btn").hide(); // New Product btn yo‘q
+  }
+
   $(".product-collection").on("change", function () {
     const selectedValue = $(this).val();
 
