@@ -47,7 +47,7 @@ sellerController.processLogin = async (req: AdminRequest, res: Response) => {
 
     req.session.member = result;
     req.session.save(function () {
-      res.redirect("/admin/product/all");
+      res.redirect("/admin");
     });
   } catch (err) {
     console.log("Error, processLogin:", err);
