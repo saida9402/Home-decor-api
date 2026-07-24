@@ -88,7 +88,6 @@ class ProductService {
 
       const existView = await this.viewService.checkViewExistance(input);
 
-      console.log("exist:", !!existView);
       if (!existView) {
         // Insert View
         await this.viewService.insertMemberView(input);

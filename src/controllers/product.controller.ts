@@ -14,7 +14,6 @@ const productController: T = {};
 
 productController.getProducts = async (req: Request, res: Response) => {
   try {
-    console.log("getProducts");
     const { page, limit, order, productCollection, search } = req.query;
     const inquiry: ProductInquiry = {
       order: String(order),
@@ -38,7 +37,6 @@ productController.getProducts = async (req: Request, res: Response) => {
 
 productController.getProduct = async (req: ExtendedRequest, res: Response) => {
   try {
-    console.log("getProduct");
     const { id } = req.params;
 
     const memberId = req.member?._id ?? null;
@@ -56,9 +54,7 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
 
 productController.getAllProducts = async (req: AdminRequest, res: Response) => {
   try {
-    console.log("getAllProducts");
     const data = await productService.getAllProducts();
-    console.log("product:", data);
 
     // res.render("products", { products: data });
     res.render("products", {
@@ -77,8 +73,6 @@ productController.createNewProduct = async (
   res: Response
 ) => {
   try {
-    console.log("createNewProduct");
-    console.log("req.body:", req.body);
     if (!req.files?.length)
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
@@ -104,7 +98,6 @@ productController.createNewProduct = async (
 
 productController.updateProduct = async (req: Request, res: Response) => {
   try {
-    console.log("updateProduct");
   } catch (err) {
     console.log("Error, updateProduct:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -115,9 +108,7 @@ productController.updateProduct = async (req: Request, res: Response) => {
 
 productController.updateChosenProduct = async (req: Request, res: Response) => {
   try {
-    console.log("updateChosenProduct");
     const id = req.params.id; //id ni qiymatini olishchun -> PARAM 사용함
-    console.log("id:", id);
 
     const result = await productService.updateChosenProduct(id, req.body);
 

@@ -11,7 +11,6 @@ const sellerController: T = {};
 
 sellerController.goHome = (req: Request, res: Response) => {
   try {
-    console.log("goHome");
     res.render("home");
   } catch (err) {
     console.log("Error, goHome:", err);
@@ -21,7 +20,6 @@ sellerController.goHome = (req: Request, res: Response) => {
 
 sellerController.getLogin = (req: Request, res: Response) => {
   try {
-    console.log("getLogin");
     res.render("login");
   } catch (err) {
     console.log("Error, getLogin:", err);
@@ -31,7 +29,6 @@ sellerController.getLogin = (req: Request, res: Response) => {
 
 sellerController.getSignup = (req: Request, res: Response) => {
   try {
-    console.log("getSignup");
     res.render("signup");
   } catch (err) {
     console.log("Error, getSignup:", err);
@@ -41,7 +38,6 @@ sellerController.getSignup = (req: Request, res: Response) => {
 
 sellerController.processLogin = async (req: AdminRequest, res: Response) => {
   try {
-    console.log("processLogin");
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
 
@@ -62,7 +58,6 @@ sellerController.processLogin = async (req: AdminRequest, res: Response) => {
 
 sellerController.logout = async (req: AdminRequest, res: Response) => {
   try {
-    console.log("logout");
     req.session.destroy(function () {
       res.redirect("/admin");
     });
@@ -74,9 +69,7 @@ sellerController.logout = async (req: AdminRequest, res: Response) => {
 
 sellerController.getUsers = async (req: Request, res: Response) => {
   try {
-    console.log("getUsers");
     const result = await memberService.getUsers();
-    console.log("result:", result);
 
     res.render("users", { users: result });
   } catch (err) {
@@ -87,7 +80,6 @@ sellerController.getUsers = async (req: Request, res: Response) => {
 
 sellerController.updateChosenUser = async (req: Request, res: Response) => {
   try {
-    console.log("updateChosenUser ");
     const result = await memberService.updateChosenUser(req.body);
 
     res.status(HttpCode.OK).json({ data: result });
@@ -100,7 +92,6 @@ sellerController.updateChosenUser = async (req: Request, res: Response) => {
 
 sellerController.processSignup = async (req: AdminRequest, res: Response) => {
   try {
-    console.log("processSignup");
 
     const file = req.file;
     if (!file)
@@ -133,7 +124,6 @@ sellerController.checkAuthSessions = async (
   res: Response
 ) => {
   try {
-    console.log("checkAuthSessions");
 
     if (req.session?.member)
       res.send(`<script> alert ("${req.session.member.memberNick}")</script>`);

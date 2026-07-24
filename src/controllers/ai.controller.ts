@@ -47,7 +47,6 @@ const aiController: T = {};
 
 aiController.recommend = async (req: Request, res: Response) => {
   try {
-    console.log("recommend");
 
     const ip = req.ip || req.socket.remoteAddress || "unknown";
     if (isRateLimited(ip)) {

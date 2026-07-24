@@ -146,7 +146,6 @@ class MemberService {
         { memberNick: 1, memberPassword: 1 }
       )
       .exec();
-    console.log("member:", member);
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
     const isMatch = await bcrypt.compare(

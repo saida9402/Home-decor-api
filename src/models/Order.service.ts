@@ -42,7 +42,6 @@ class OrderService {
       });
 
       const orderId = newOrder._id;
-      console.log("orderId:", orderId);
       await this.recordOrderItem(orderId, input);
 
       return newOrder;
@@ -67,7 +66,6 @@ class OrderService {
 
     // record uchun mantiqni ishga tushuruvchi mantiq (2)
     const orderItemsState = await Promise.all(promisedList);
-    console.log("orderItemsState:", orderItemsState);
   }
 
   public async getMyOrders(
