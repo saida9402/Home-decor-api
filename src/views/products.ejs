@@ -1,34 +1,32 @@
 <%- include('includes/header') %>
 
-<link rel="stylesheet" type="text/css" href="/css/products.css" />
-
-
-
-
 <body>
   <div class="products-container">
-    <div class="navigation-menu">
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" href="/admin/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/admin/product/all">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/admin/user/all">Users</a>
-        </li>
-        <li class="nav-item" onclick="return confirm('Do you want to logout?')">
-          <a class="nav-link" href="/admin/logout">Logout</a>
-        </li>
-      </ul>
+    <div class="hd-topbar">
+      <span class="hd-wordmark">Home Decor</span>
+      <div class="navigation-menu">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/admin/product/all">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/user/all">Users</a>
+          </li>
+          <li class="nav-item" onclick="return confirm('Do you want to logout?')">
+            <a class="nav-link" href="/admin/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="restaurant-menu-frame">
       <div class="board">
         <div class="dishes-table">
           <span class="new-dish-txt" style="margin-bottom: 30px">
-            PRODUCT LIST
+            Product List
           </span>
 
           <table class="table table-bordered table-hover">
@@ -71,7 +69,7 @@
 
         <form onsubmit="return validateForm()" action="/admin/product/create" method="POST" class="dish-container" enctype="multipart/form-data">
           <div class="long-input" style="display: flex; align-items: center">
-            <span class="new-dish-txt">NEW PRODUCT DETAIL</span>
+            <span class="new-dish-txt">New Product Detail</span>
           </div>
 
           <div class="login-input-frame">
@@ -153,10 +151,4 @@
   <script type="text/javascript" src="/js/products.js"></script>
 </body>
 
-
-
-
-
-
 <%- include('includes/footer') %>
-

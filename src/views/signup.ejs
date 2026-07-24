@@ -1,7 +1,5 @@
 <%- include('includes/header') %>
 
-<link rel="stylesheet" type="text/css" href="/css/signup.css" />
-
 <body>
   <div class="signup-container">
     <form
@@ -10,19 +8,20 @@
       method="POST"
       enctype="multipart/form-data"
     >
-      <div class="signup-frame" style="width: 650px">
+      <div class="signup-frame">
         <div class="signup-top">
-          <span>Signup</span>
-          <div>Go back <a href="/admin" style="color: #6440fb">Home</a></div>
+          <span class="hd-wordmark hd-wordmark--sm">Home Decor</span>
+          <span>Create account</span>
+          <div>Go back <a href="/admin">Home</a></div>
           <p>
             Already signed up?
-            <a href="/admin/login" style="color: #6440fb">Login</a>
+            <a href="/admin/login">Login</a>
           </p>
         </div>
 
-        <div class="sign-input-frame" style="justify-content: space-between">
+        <div class="sign-input-frame">
           <div class="sign-up-frame">
-            <label>Seller *</label>
+            <label>Seller</label>
             <input
               type="text"
               name="memberNick"
@@ -32,7 +31,7 @@
             />
           </div>
           <div class="sign-up-frame">
-            <label>Phone *</label>
+            <label>Phone</label>
             <input
               type="text"
               name="memberPhone"
@@ -42,9 +41,9 @@
             />
           </div>
         </div>
-        <div class="sign-input-frame" style="justify-content: space-between">
+        <div class="sign-input-frame">
           <div class="sign-up-frame">
-            <label>Password *</label>
+            <label>Password</label>
             <input
               type="password"
               name="memberPassword"
@@ -54,7 +53,7 @@
             />
           </div>
           <div class="sign-up-frame">
-            <label>Repeat password *</label>
+            <label>Repeat password</label>
             <input
               type="password"
               name="confirmPassword"
@@ -66,14 +65,12 @@
         </div>
 
         <div class="signup-input-frame">
+          <label>Brand image</label>
           <div class="media-frame">
             <img class="upload-img-frame" src="/img/default.jpeg" />
             <div class="upload-container">
               <span class="media-text">Product image</span>
-              <div
-                class="file-box bs3-primary preview-image"
-                style="margin-top: 25px; display: flex"
-              >
+              <div class="file-box bs3-primary preview-image">
                 <input
                   class="upload-name"
                   value="Choose image"
@@ -91,8 +88,8 @@
               </div>
               <p class="thumbnail-desc">
                 Please upload brand image.<br />
-                Attention only:.jpg, .jpeg, or .png. <br />
-                formats allowed!
+                Attention only: .jpg, .jpeg, or .png <br />
+                formats allowed.
               </p>
             </div>
           </div>
