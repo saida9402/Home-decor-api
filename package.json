@@ -8,7 +8,7 @@
     "prestart:dev": "kill-port 3003",
     "start:dev": "kill-port 3003 && nodemon --exec ts-node src/server.ts",
     "build": "tsc && node extra.js",
-    "start:prod": "NODE_ENV=production node dist/server.js",
+    "start:prod": "node dist/server.js",
     "train": "nodemon --exec ts-node src/train.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

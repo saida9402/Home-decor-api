@@ -3,3 +3,8 @@ dist
 
 .env
 .env.production
+
+# User-uploaded content — ignore files, keep the folder structure
+uploads/**
+!uploads/**/
+!uploads/**/.gitkeep
