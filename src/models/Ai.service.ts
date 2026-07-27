@@ -1,3 +1,4 @@
+import fetch from "node-fetch";
 import ProductModel from "../schema/Product.model";
 import { ProductStatus } from "../libs/enums/product.enum";
 import { Product } from "../libs/types/product";
