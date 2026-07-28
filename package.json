@@ -1,7 +1,7 @@
 {
   "name": "home-decor",
   "version": "1.0.0",
-  "description": "This is burak project backend",
+  "description": "REST API for Home Decor e-commerce — Express, TypeScript, MongoDB, Socket.IO",
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
@@ -12,7 +12,7 @@
     "train": "nodemon --exec ts-node src/train.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "MIT",
+  "author": "Saida Khaymatova",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
