@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name   : "HOME-DECOR",
-    cwd: "/home/home-decor-project",
+    cwd: "/home/home-decor-project/Home-decor-api",
     script : "./dist/server.js",
     interpreter: "/root/.nvm/versions/node/v16.20.2/bin/node",
     watch: false,
